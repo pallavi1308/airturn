@@ -3,11 +3,7 @@ const { Pool } = require("pg");
 const env = require("../config/env");
 
 const pool = new Pool({
-  host: env.DB_HOST,
-  port: env.DB_PORT,
-  user: env.DB_USER,
-  password: env.DB_PASSWORD,
-  database: env.DB_NAME,
+  connectionString: `postgresql://${env.DB_USER}:${env.DB_PASSWORD}@${env.DB_HOST}:${env.DB_PORT}/${env.DB_NAME}?sslmode=require`,
   ssl: { rejectUnauthorized: false },
 });
 
