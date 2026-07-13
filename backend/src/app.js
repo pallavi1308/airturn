@@ -10,7 +10,10 @@ const taskRoutes = require("./modules/tasks/routes/taskRoutes");
 const dashboardRoutes = require("./modules/dashboard/routes/dashboardRoutes");
 const handoverRoutes = require("./modules/handovers/routes/handoverRoutes");
 
-app.use(cors());
+app.use(cors({
+  origin: "https://airturn.vercel.app", // your real Vercel URL
+  credentials: true,
+}));
 app.use(helmet());
 app.use(morgan("dev"));
 app.use(express.json());
